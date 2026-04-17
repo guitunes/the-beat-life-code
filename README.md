@@ -27,7 +27,13 @@ layouts-life-code/
 
 A apresentação está publicada em:
 
-> **https://{usuario-github}.github.io/the-beat-life-code/life-code-oficial.html**
+> **https://guitunes.github.io/the-beat-life-code/**
+>
+> URL canônica direta: `https://guitunes.github.io/the-beat-life-code/life-code-oficial.html`
+>
+> Repositório: `https://github.com/guitunes/the-beat-life-code`
+>
+> Release: `v1.0.0` · 17 de abril de 2026
 
 URL estável, gratuita, hospedada em GitHub Pages. Acesso:
 - TV/desktop (recomendado para apresentação)
