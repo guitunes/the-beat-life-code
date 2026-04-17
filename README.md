@@ -45,18 +45,22 @@ Para apresentar comercialmente:
 
 ## PROTOCOLO DE SEGURANÇA
 
-### Regra 1 · Arquivo oficial é read-only
+### Regra 1 · Arquivo oficial tem regra de edição controlada
 
-O `life-code-oficial.html` tem atributo **read-only** ativo no Windows. Qualquer edição acidental é bloqueada pelo sistema.
+**Nota técnica**: o Google Drive Desktop ignora o atributo `IsReadOnly` do Windows (limitação conhecida — Drive prioriza sync sobre atributos do sistema). A proteção aqui é **convencional**, não filesystem-enforced. As outras camadas (git, Drive version history, cópia fora do Drive) substituem essa proteção com folga.
 
 **Para alterar o deck legitimamente**, o fluxo é:
 
-1. Duplicar o arquivo: `life-code-oficial.html` → `life-code-rascunho-YYYY-MM-DD.html`
-2. Editar a cópia rascunho
-3. Validar (abrir no browser, navegar os 12 slides)
-4. Promover: remover read-only do oficial, sobrescrever, aplicar read-only de novo
-5. Commit no git + push (atualiza URL pública automaticamente)
-6. Tag release: `git tag v1.X.0 && git push --tags`
+1. Editar sempre na **cópia de trabalho fora do Drive**: `C:\Users\Usuario\projetos\life-code-oficial\`
+2. Nessa cópia: duplicar o arquivo se for experimentar: `life-code-oficial.html` → `life-code-rascunho-YYYY-MM-DD.html`
+3. Editar a cópia rascunho, validar (abrir no browser, navegar os 12 slides)
+4. Promover: sobrescrever `life-code-oficial.html` na pasta de trabalho
+5. `git add . && git commit -m "descricao"` (ver seção Git abaixo)
+6. `git push` → atualiza URL pública automaticamente em ~1 min
+7. `cp` da pasta de trabalho para o Drive (mantém o arquivo do Drive sincronizado com git)
+8. Tag release: `git tag v1.X.0 && git push --tags`
+
+**NUNCA editar o arquivo diretamente no Drive sem passar pelo git.** Se acontecer, a recovery passa pelo Drive version history (ver Regra 3).
 
 ### Regra 2 · Snapshot antes de mudanças grandes
 
