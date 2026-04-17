@@ -1,0 +1,29 @@
+# Backup local e snapshots · nao vao para o repo publico
+_backup-limpeza/
+
+# PDF oficial · 142MB, passa do limite pratico do GitHub
+# Gerado localmente via Chrome headless quando necessario
+*.pdf
+
+# Google Drive sync markers
+.desktop.ini
+desktop.ini
+
+# Rascunhos temporarios (pattern life-code-rascunho-YYYY-MM-DD.html)
+*-rascunho-*.html
+*.backup-*
+
+# OS files
+Thumbs.db
+.DS_Store
+ehthumbs.db
+
+# Editor temp files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Logs e outputs gerados
+*.log
